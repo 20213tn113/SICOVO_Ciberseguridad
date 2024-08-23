@@ -11,6 +11,8 @@ Flask-WTF==0.14.3
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
+mysql==0.0.3
+mysql-connector==2.2.9
 mysqlclient
 pip==23.3.2
 PyMySQL==1.1.0
