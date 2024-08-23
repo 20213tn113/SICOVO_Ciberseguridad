@@ -1,0 +1,27 @@
+nav{
+    background-color: #FFD800C7;
+}
+
+
+ .navbar-custom {
+    border-bottom: 10px solid #A600FF; 
+}
+
+.navbar-brand-custom {
+    color: black; 
+}
+
+.boton-purple{
+    background-color: #A600FF;
+}
+
+.btn-outline-light{
+    border-color: #431779;
+    color: #431779;
+    
+}
+
+.btn2-outline-purple:hover {
+    color: purple;
+    border-color: purple;
+}

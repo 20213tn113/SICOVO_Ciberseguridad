@@ -1,0 +1,48 @@
+{% extends './base.html'%}
+
+{% block title %} Inicio de Sesión {% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bienvenida.css')}}">
+{% endblock %}
+
+{% block body %}
+{% include './nav.html'%}
+<div class="fondo">
+    <div class="row">
+
+        <div class="col-md-6 derecha">
+
+            <form class="form-signin" action="/login" method="POST">
+                <img class="mb-4" src="{{ url_for('static', filename='fondos/LogoSICOVO.png')}}" alt="" height="120">
+                <h1 class="h4 mb-4 fw-normal">Bienvenid@ a Librolandia</h1>
+
+                <div class="form-floating">
+                    <h6 class="h6 mb-1">
+                        Bienvenido a LIBROLANDIA, tu destino digital para explorar y comprar libros de manera
+                        conveniente desde la comodidad de tu hogar. En nuestra plataforma, encontrarás una amplia
+                        selección desde los clásicos atemporales hasta las últimas novedades literarias.
+                    </h6>
+                </div>
+                <div class="form-floating">
+
+                </div>
+                <br>
+                <button class="btn boton-purple text-white w-100 py-2" type="submit">Iniciar Sesi&oacute;n</button>
+
+                <br />
+                <br />
+                <button class="btn boton-purple text-white w-100 py-2" type="submit">Registrarse</button>
+                <br>
+
+            </form>
+
+        </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+{% block customJS %}
+<script src="{{ url_for('static', filename='js/bienvenida.js')}}"></script>
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends './base.html'%}
+
+{% block title %} Inicio de Sesión {% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+{% endblock %}
+
+{% block body %}
+{% include './nav.html'%}
+
+
+
+<div class="fondo">
+  <div class="row">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6 derecha">
+
+      <form class="form-signin" action="/login" method="POST">
+      <!-- <form class="form-signin" action="" method=""> -->
+
+        <img class="mb-4" src="{{ url_for('static', filename='fondos/LogoSICOVO.png')}}" alt="" height="120">
+        <h1 class="h3 mb-3 fw-normal"> Iniciar Sesión</h1>
+
+        <div class="form-floating">
+          <label for="usuario">Usuario</label>
+          <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario" minlength="6"
+            maxlength="20" oninput="convertirAMayusculasU()">
+          <br />
+        </div>
+        <div class="form-floating">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+            minlength="6">
+        </div>
+        <button class="btn boton-purple text-white w-100 py-2 loginButton" >Iniciar Sesi&oacute;n</button>
+
+        <br />
+        <br />
+        <a href="{{ url_for('registroUsuario') }}">Registrarse</a>
+        <br />
+        {% with messages = get_flashed_messages(with_categories=True) %}
+
+        {% if messages %}
+        <br />
+        {% for category, message in messages %}
+
+        {% if category == 'warning' %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong style="font-size: 14px;">{{ message }}</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% else %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong style="font-size: 14px;">{{ message }}</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endif %}
+
+        {% endfor %}
+        {% endif %}
+
+        {% endwith %}
+
+        <p class="mt-5 mb-3 text-body-secondary">&copy; 2024</p>
+      </form>
+
+    </div>
+  </div>
+</div>
+{% block customJS %}
+<script src="{{ url_for('static', filename='js/login.js')}}"></script>
+<!-- <script src="{{ url_for('static', filename='js/notificacionSwal.js') }}"> </script>
+<script src="{{ url_for('static', filename='lib/sweetalert2-9.10.0/sweetalert2.all.min.js') }}"> </script> -->
+
+{% endblock %}
+{% endblock %}

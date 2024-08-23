@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="{{ url_for('static',filename='css/nav.css') }}" >
+
+<nav class="navbar navbar-expand-lg navbar-custom">
+  {% if current_user.is_authenticated %}
+
+    <a class="navbar-brand navbar-brand-custom" href="{{ url_for('index') }}"><img src="../static/fondos/LibrosLogoSINLETRAS.png" width="36" height="36" role="img"> </a>
+    <a class="navbar-brand navbar-brand-custom" href="{{ url_for('index') }}"> Librolandia</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-light mr-3"  href="{{ url_for('index') }}"> <i class="bi bi-house-door-fill"></i><i class="bi bi-house"></i>Inicio</a>
+        </li>
+          {% if current_user.tipousuario.id ==2 %}
+          <li class="nav-item">
+            <a class="nav-link navbar-brand-custom btn btn-outline-light mr-3" href="{{ url_for('listar_libros') }}">Libros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navbar-brand-custom btn btn-outline-light mr-3" href="{{ url_for('upload') }}">Cargar libro</a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link navbar-brand-custom btn btn-outline-light mr-3" href="{{ url_for('logout') }}">Cerrar Sesión</a>
+          </li>
+        </ul>
+        <span class="navbar-text">
+          <strong>{{ current_user.usuario }}</strong> ({{ current_user.tipousuario.nombre }})
+        </span>
+
+      </div>
+
+  {% else %}
+    
+
+  
+  {% endif %}
+
+</nav>

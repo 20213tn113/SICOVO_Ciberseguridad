@@ -1,0 +1,115 @@
+{% extends './base.html'%}
+
+{%block title%} Registro de Usuario {%endblock%}
+
+{%block customCSS%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/registro_usuario.css') }}">
+
+
+{%endblock%}
+{% block body %}
+{% include './nav.html'%}
+
+<div class="fondo">
+  <div class="row">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6 derecha">
+      <div class="form-signin" >
+
+        <div class="row">
+          <div class="col d-flex justify-content-start align-items-start">
+            <a class=" btn btn-outline-light mr-3"  href="{{ url_for('index') }}"><svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z"/>
+              <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+            </svg>Volver</a>
+          </div>
+          <div class="col">
+            <img class="mb-4" src="{{ url_for('static', filename='fondos/LogoSICOVO.png') }}" alt="" height="120">          </div>
+          <div class="col">
+          </div>
+        </div>
+        <h1 class="h3 mb-3 font-weight-normal">Registro de Usuario</h1>
+
+        <div class="col-12">
+          <label for="nombre" class="form-label">Nombre (S)</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="" value="" required
+            oninput="convertirAMayusculasN()">
+          <div class="invalid-feedback">
+            Valid first name is required.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="apellido" class="form-label">Apellidos</label>
+          <input type="text" class="form-control" id="apellido" name="apellido" placeholder="" value="" required
+            oninput="convertirAMayusculasA()">
+          <div class="invalid-feedback">
+            Valid last name is required.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="username" class="form-label">Usuario</label>
+          <div class="input-group has-validation">
+            <input type="text" class="form-control" id="usuario" name="usuario" required
+              oninput="convertirAMayusculasU()">
+            <div class="invalid-feedback">
+              Your username is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="password" class="form-label">Contraseña</label>
+          <div class="input-group has-validation">
+            <input type="password" class="form-control" id="password" name="password" required>
+            <div class="invalid-feedback">
+              Your username is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="email" class="form-label">Correo Electr&oacute;nico</label>
+          <input type="email" class="form-control" id="correo" name="correo" placeholder="you@example.com">
+          <div class="invalid-feedback">
+            Please enter a valid email address for shipping updates.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="address" class="form-label">Domicilio</label>
+          <input type="text" class="form-control" id="domicilio" name="domicilio" placeholder="" required>
+          <div class="invalid-feedback">
+            Please enter your shipping address.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="address2" class="form-label">Tel&eacute;fono</label>
+          <input type="text" class="form-control" id="telefono" name="telefono" placeholder=""
+            oninput="validarNumeros(this)">
+        </div>
+
+        <br>
+
+        <button class="btn btn-lg btn-primary btn-block boton-purple btnRegistrarUsuario">Registrarse</button>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{%block customJS%}
+<script src="{{ url_for('static', filename='js/registro_usuario.js') }}"></script>
+<script src="{{ url_for('static', filename='js/notificacionSwal.js') }}"> </script>
+<script src="{{ url_for('static', filename='lib/sweetalert2-9.10.0/sweetalert2.all.min.js') }}"> </script>
+
+
+{%endblock%}
+
+
+{%endblock%}
